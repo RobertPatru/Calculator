@@ -31,9 +31,15 @@ function calcuate(event) {
     }
 
     else if (event.target.classList.contains('percent')) {
-        console.log(currentNumber);
-        currentNumber = parseFloat(currentNumber)/100;
-        console.log(currentNumber);
+        if (previousNumber == '') {
+            error();
+        }
+        else {
+            console.log(currentNumber);
+            currentNumber = parseFloat(currentNumber)/100 * parseFloat(previousNumber);
+            result.innerText = currentNumber.toFixed(2);
+            console.log(currentNumber);
+        }
     }
 
     else if (event.target.classList.contains('plus-minus')) {
