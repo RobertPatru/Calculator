@@ -35,10 +35,8 @@ function calcuate(event) {
             error();
         }
         else {
-            console.log(currentNumber);
             currentNumber = parseFloat(currentNumber)/100 * parseFloat(previousNumber);
             result.innerText = currentNumber.toFixed(2);
-            console.log(currentNumber);
         }
     }
 
@@ -47,6 +45,13 @@ function calcuate(event) {
             currentNumber = parseFloat(currentNumber) * (-1)
             result.innerText = currentNumber;
         }     
+    }
+
+    else if (event.target.classList.contains('dott')) {
+        if (currentNumber != '') {
+            currentNumber = currentNumber + '.';
+            result.innerText = currentNumber;
+        }
     }
 
     else if (event.target.classList.contains('operator')) {  // if a mathematical operation is pressed
